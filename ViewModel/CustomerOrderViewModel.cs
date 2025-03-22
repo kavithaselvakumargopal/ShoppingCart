@@ -5,7 +5,7 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-//using CommunityToolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.Input;
 using ShoppingCart.Data;
 using ShoppingCart.Model;
 using ShoppingCart.View;
