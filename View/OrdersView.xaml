@@ -1,0 +1,57 @@
+﻿<Window x:Class="ShoppingCart.View.OrdersView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ShoppingCart.View"
+        mc:Ignorable="d"
+        Title="OrdersView" Width="500" Height="700"
+        MinWidth="400" MinHeight="250"
+        Background="LightGray">
+ 
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Welcome to WPF MVVM!"
+               FontSize="18" FontWeight="Bold"
+               HorizontalAlignment="Center"
+               Margin="0,0,0,10"/>
+
+        <StackPanel>
+            <Label Content="Search Phone" />
+            <TextBox  Width="200"
+             Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+            <Button Content="Search" Command="{Binding SearchOrderCommand}" CommandParameter="{Binding SearchText}"/>
+            <Label Content="Enter Customer Phone" />
+            <TextBox Text="{Binding Phone, UpdateSourceTrigger=PropertyChanged}"/>
+            <Label Content="Customer Name" />
+            <TextBox Text="{Binding CustomerName, UpdateSourceTrigger=PropertyChanged}"/>
+            <Label Content="Enter Amount" />
+            <TextBox Text="{Binding TotalAmount, UpdateSourceTrigger=PropertyChanged}" />
+            <Label Content="Enter Quantity" />
+            <TextBox Text="{Binding Quantity, UpdateSourceTrigger=PropertyChanged}"/>
+            <Label Content="Enter Product Id" />
+            <TextBox Text="{Binding ProductId, UpdateSourceTrigger=PropertyChanged}" />
+
+            <DataGrid ItemsSource="{Binding Orders}" AutoGenerateColumns="True"
+            CanUserAddRows="False"
+  CanUserDeleteRows="False"
+  AlternationCount="2"
+  RowBackground="White"
+  AlternatingRowBackground="LightGray"
+  GridLinesVisibility="All"
+  ColumnWidth="*"
+  BorderBrush="Black"
+  BorderThickness="1"
+  HeadersVisibility="Column"
+  FontSize="14"
+     SelectedItem="{Binding SelectedOrder}" Height="100" />
+            <Button Content="Add Order" Command="{Binding AddOrderCommand}"/>
+            <Button Content="Remove Order" Command="{Binding RemoveOrderCommand}"/>
+        </StackPanel>
+    </Grid>
+</Window>
